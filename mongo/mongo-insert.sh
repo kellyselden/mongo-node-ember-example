@@ -1,0 +1,1 @@
+mongo shared/mongo-insert.js
