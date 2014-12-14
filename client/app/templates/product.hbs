@@ -1,8 +1,10 @@
-{{#with model}}
-  <div>
-    <label>Name</label>
-    {{input value=name}}
-  </div>
-{{/with}}
+<table>
+  {{#with model}}
+    <tr>
+      <td><label>Name</label></td>
+      <td>{{input value=name}}</td>
+    </tr>
+  {{/with}}
+</table>
 
 {{edit-buttons model=model}}

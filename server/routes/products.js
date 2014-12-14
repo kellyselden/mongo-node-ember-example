@@ -7,7 +7,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 var Product = new mongoose.Schema({
-  name: String
+  name: { type: String, required: true }
 });
 var ProductModel = mongoose.model('Product', Product);  
 
@@ -26,7 +26,7 @@ router.post('/', function (req, res){
   console.log("POST: ");
   console.log(req.body);
   product = new ProductModel({
-    name: req.body.name
+    name: req.body.product.name
   });
   product.save(function (err) {
     if (!err) {
@@ -41,7 +41,9 @@ router.post('/', function (req, res){
 router.get('/:id', function (req, res){
   return ProductModel.findById(req.params.id, function (err, product) {
     if (!err) {
-      return res.send(product);
+      return res.send({
+        product: product
+      });
     } else {
       return console.log(err);
     }

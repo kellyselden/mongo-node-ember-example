@@ -1,0 +1,7 @@
+<ul>
+  {{#each model}}
+    <ul>{{link-to name "product" this}}</ul>
+  {{/each}}
+</ul>
+
+{{link-to "create" "products.create"}}
