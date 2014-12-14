@@ -9,6 +9,7 @@
   "author": "Kelly Selden <kellyselden@gmail.com> (https://github.com/kellyselden)",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.10.0",
     "mongoose": "^3.8.20",
     "path": "^0.4.9"
   }

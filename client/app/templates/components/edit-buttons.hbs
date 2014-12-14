@@ -1,0 +1,9 @@
+<button {{action 'cancel'}}>Cancel</button>
+{{#unless noSave}}
+  <button {{action 'save'}}>Save</button>
+{{/unless}}
+{{#unless noRemove}}
+  {{#if model.id}}
+    <button {{action 'remove'}}>Remove</button>
+  {{/if}}
+{{/unless}}
