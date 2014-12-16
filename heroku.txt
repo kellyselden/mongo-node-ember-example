@@ -1,0 +1,2 @@
+heroku keys:add
+create "HOME" user environment variable, set to "c:\Users\Me"
