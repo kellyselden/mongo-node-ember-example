@@ -19,4 +19,8 @@ app.use(function(req, res, next) {
 
 app.use('/api/v1/products', products);
 
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 module.exports = app;

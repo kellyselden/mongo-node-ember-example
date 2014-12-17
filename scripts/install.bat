@@ -1,6 +1,6 @@
 pushd %~dp0..\client
-npm prune
-npm install
-bower prune
-bower install --config.interactive=false
+call npm prune
+call npm install
+call bower prune
+call bower install --config.interactive=false
 popd
