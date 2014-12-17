@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var products = require('./routes/products');
+var router = require('./router');
 
 var app = express();
 
@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/api/v1/products', products);
+app.use('/api/v1', router);
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
