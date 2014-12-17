@@ -35,22 +35,26 @@ router.get('/:id', function(req, res) {
 
 router.put('/:id', function(req, res) {
   return Product.findById(req.params.id, function(err, product) {
-    product.name = req.body.product.name;
-    return product.save(function(err) {
-      if (err) return console.error(err);
-      return res.send({
-        product: product
+    if (product) {
+      product.name = req.body.product.name;
+      return product.save(function(err) {
+        if (err) return console.error(err);
+        return res.send({
+          product: product
+        });
       });
-    });
+    }
   });
 });
 
 router.delete('/:id', function(req, res) {
   return Product.findById(req.params.id, function(err, product) {
-    return product.remove(function(err) {
-      if (err) return console.error(err);
-      return res.send('');
-    });
+    if (product) {
+      return product.remove(function(err) {
+        if (err) return console.error(err);
+        return res.send('');
+      });
+    }
   });
 });
 
