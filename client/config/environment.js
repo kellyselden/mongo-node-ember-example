@@ -1,4 +1,7 @@
 /* jshint node: true */
+var fs = require('fs');
+
+var host = fs.readFileSync('./host', 'utf8');
 
 module.exports = function(environment) {
   var ENV = {
@@ -16,7 +19,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      host: 'http://localhost:3000',
+      host: host || 'http://localhost:3000',
       api: 'api/v1'
     }
   };

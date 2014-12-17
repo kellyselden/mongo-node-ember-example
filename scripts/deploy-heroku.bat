@@ -1,5 +1,5 @@
 pushd %~dp0
-call build
+call build heroku http://%heroku%.herokuapp.com
 for /f %%i in (heroku) do set heroku=%%i
 pushd ..\server
 md heroku
