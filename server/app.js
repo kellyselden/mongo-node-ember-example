@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var router = require('./router');
+var mongoose = require('./mongoose');
 
 var app = express();
 
@@ -22,5 +23,7 @@ app.use('/api/v1', router);
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
+
+mongoose.connect();
 
 module.exports = app;
