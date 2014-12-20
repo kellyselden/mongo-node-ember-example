@@ -1,6 +1,6 @@
 pushd %~dp0
-call build heroku http://%heroku%.herokuapp.com
 for /f %%i in (heroku) do set heroku=%%i
+call build heroku http://%heroku%.herokuapp.com
 pushd ..\server
 md heroku
 ROBOCOPY /MIR . heroku /XD node_modules heroku /XF .gitignore
