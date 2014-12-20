@@ -1,7 +1,9 @@
 var app = require('./app');
+var io = require('./io');
+var http = require('http').Server(app);
 
-app.set('port', process.env.PORT || 3000);
+io(http);
 
-var server = app.listen(app.get('port'), function() {
+var server = http.listen(process.env.PORT || 3000, function() {
   console.log('Express server listening on port ' + server.address().port);
 });

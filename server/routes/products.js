@@ -52,7 +52,7 @@ router.delete('/:id', function(req, res) {
     if (product) {
       return product.remove(function(err) {
         if (err) return console.error(err);
-        return res.send('');
+        return res.send({});
       });
     }
   });

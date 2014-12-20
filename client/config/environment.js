@@ -1,7 +1,10 @@
 /* jshint node: true */
 var fs = require('fs');
 
-var host = fs.readFileSync('./host', 'utf8');
+var host, hostPath = './host';
+if (fs.existsSync(hostPath)) {
+  host = fs.readFileSync(hostPath, 'utf8');
+}
 
 module.exports = function(environment) {
   var ENV = {

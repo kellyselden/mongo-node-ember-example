@@ -5,4 +5,4 @@ var connectionstring = fs.readFileSync('connectionstring', 'utf8');
 
 module.exports.connect = function() {
   mongoose.connect(connectionstring);
-}
+};
