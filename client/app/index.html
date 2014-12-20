@@ -17,6 +17,11 @@
   <body>
     {{content-for 'body'}}
 
+    <script>
+      var TogetherJSConfig_includeHashInUrl = true;
+      var TogetherJSConfig_cloneClicks = true;
+      var TogetherJSConfig_reloadAfterClonedClick = false;
+    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/client.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
