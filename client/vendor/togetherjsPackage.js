@@ -7099,8 +7099,8 @@ define('cursor',["jquery", "ui", "util", "session", "elementFinder", "tinycolor"
     context.shadowBlur = 2;
     context.shadowOffsetX = 1;
     context.shadowOffsetY = 2;
-  context.strokeStyle = "#ffffff";
-  context.stroke();
+    context.strokeStyle = "#ffffff";
+    context.stroke();
     context.fill();
     return canvas[0].toDataURL("image/png");
   }
