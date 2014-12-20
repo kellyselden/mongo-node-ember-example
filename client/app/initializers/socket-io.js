@@ -6,8 +6,9 @@ export function initialize(container, application) {
     store.fetch(msg.type, msg.id);
   });
   socket.on('remove', function(msg) {
-    if (store.hasRecordForId(msg.type, msg.id))
+    if (store.hasRecordForId(msg.type, msg.id)) {
       store.getById(msg.type, msg.id).deleteRecord();
+    }
   });
 
   application.register('io:main', socket, { instantiate: false });
