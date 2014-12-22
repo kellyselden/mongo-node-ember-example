@@ -1,7 +1,9 @@
-<ul>
+<div class="list-group">
   {{#each model}}
-    <ul>{{link-to name "product" this}}</ul>
+    {{link-to name "product" this class="list-group-item"}}
   {{/each}}
-</ul>
+</div>
 
-{{link-to "create" "products.create"}}
+{{#link-to "products.create"}}
+  <button class="btn btn-lg btn-primary">Create</button>
+{{/link-to}}

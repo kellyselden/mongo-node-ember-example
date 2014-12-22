@@ -7,6 +7,19 @@ if (fs.existsSync(hostPath)) {
 }
 
 module.exports = function(environment) {
+  //the environment hack in Brocfile.js isn't persisted throughout the entire app lifecycle
+  environment = process.env.EMBER_ENV;
+
+  var contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self'",
+    'font-src': "'self'",
+    'connect-src': "'self'",
+    'img-src': "'self'",
+    'style-src': "'self'",
+    'media-src': "'self'"
+  };
+
   var ENV = {
     modulePrefix: 'client',
     environment: environment,
@@ -18,7 +31,7 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
+    contentSecurityPolicy: contentSecurityPolicy,
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -26,6 +39,21 @@ module.exports = function(environment) {
       api: 'api/v1'
     }
   };
+
+  switch(process.env.CLIENT_ENV) {
+    case 'development':
+      break;
+    case 'heroku':
+      contentSecurityPolicy['script-src'] += " 'unsafe-eval' https://maxcdn.bootstrapcdn.com https://cdn.socket.io";
+      contentSecurityPolicy['style-src'] += " 'unsafe-inline' https://maxcdn.bootstrapcdn.com";
+      contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
+      contentSecurityPolicy['connect-src'] +=
+        ' ' + host +
+        ' ' + host.replace('http://', 'ws://').replace('https://', 'ws://');
+      break;
+    case 'production':
+      break;
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
