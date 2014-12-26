@@ -1,3 +1,9 @@
+$defaultMargin: 20px;
+
 body {
   padding-top: 50px;
+}
+
+.edit-table {
+  margin-bottom: $defaultMargin;
 }
