@@ -3,7 +3,7 @@ call clean-tmp
 call install
 pushd ..
 pushd client
-echo %2>host
+<nul set /p=%2>host
 call ember build --environment=%1
 del /q host
 popd
