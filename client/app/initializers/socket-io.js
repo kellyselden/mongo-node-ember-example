@@ -2,7 +2,9 @@ export function initialize(container, application) {
   var store = container.lookup('store:main');
 
   var host = application.host;
-  if (host.split(':').length === 2) host += ':80';
+  if (host.split(':').length === 2) {
+    host += ':80';
+  }
   var socket = io(host);
 
   socket.on('save', function(msg) {
