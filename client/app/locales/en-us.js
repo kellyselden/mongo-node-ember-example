@@ -12,7 +12,9 @@ export default {
   product: {
     products: 'Products',
     edit: 'Edit Product',
-    name: 'Name'
+    name: 'Name',
+    type: 'Type',
+    public: 'Public'
   },
   buttons: {
     create: 'Create',

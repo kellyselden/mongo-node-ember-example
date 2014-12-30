@@ -5,6 +5,9 @@ var host, hostPath = './host';
 if (fs.existsSync(hostPath)) {
   host = fs.readFileSync(hostPath, 'utf8');
 }
+if (!host) {
+  host = 'http://localhost:3000';
+}
 
 module.exports = function(environment) {
   //the environment hack in Brocfile.js isn't persisted throughout the entire app lifecycle
@@ -35,7 +38,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      host: host || 'http://localhost:3000',
+      host: host,
       api: 'api/v1',
       defaultLocale: 'en-us'
     }
@@ -45,12 +48,6 @@ module.exports = function(environment) {
     case 'development':
       break;
     case 'heroku':
-      contentSecurityPolicy['script-src'] += " 'unsafe-eval' https://maxcdn.bootstrapcdn.com https://cdn.socket.io";
-      contentSecurityPolicy['style-src'] += " 'unsafe-inline' https://maxcdn.bootstrapcdn.com";
-      contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
-      contentSecurityPolicy['connect-src'] +=
-        ' ' + host +
-        ' ' + host.replace('http://', 'ws://').replace('https://', 'ws://');
       break;
     case 'production':
       break;
@@ -62,6 +59,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    contentSecurityPolicy['script-src'] += " 'unsafe-eval' https://maxcdn.bootstrapcdn.com https://cdn.socket.io";
+    contentSecurityPolicy['style-src'] += " 'unsafe-inline' https://maxcdn.bootstrapcdn.com";
+    contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
+    contentSecurityPolicy['connect-src'] +=
+      ' ' + host +
+      ' ' + host.replace('http://', 'ws://');
   }
 
   if (environment === 'test') {

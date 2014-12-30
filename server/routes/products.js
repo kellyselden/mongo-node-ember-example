@@ -14,7 +14,9 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
   var product = new Product({
-    name: req.body.product.name
+    name: req.body.product.name,
+    type: req.body.product.type,
+    isPublic: req.body.product.isPublic
   });
   return product.save(function(err) {
     if (err) return console.error(err);
@@ -37,6 +39,8 @@ router.put('/:id', function(req, res) {
   return Product.findById(req.params.id, function(err, product) {
     if (product) {
       product.name = req.body.product.name;
+      product.type = req.body.product.type;
+      product.isPublic = req.body.product.isPublic;
       return product.save(function(err) {
         if (err) return console.error(err);
         return res.send({
