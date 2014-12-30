@@ -3,11 +3,17 @@ var Product = require('../models/product');
 
 var router = express.Router();
 
+function deleteVersion(product) {
+  product = product.toObject();
+  delete product.__v;
+  return product;
+}
+
 router.get('/', function(req, res) {
   return Product.find(function(err, products) {
     if (err) return console.error(err);
     return res.send({
-      products: products
+      products: products.map(deleteVersion)
     });
   });
 });
@@ -21,7 +27,7 @@ router.post('/', function(req, res) {
   return product.save(function(err) {
     if (err) return console.error(err);
     return res.send({
-      product: product
+      product: deleteVersion(product)
     });
   });
 });
@@ -30,7 +36,7 @@ router.get('/:id', function(req, res) {
   return Product.findById(req.params.id, function(err, product) {
     if (err) return console.error(err);
     return res.send({
-      product: product
+      product: deleteVersion(product)
     });
   });
 });
@@ -44,7 +50,7 @@ router.put('/:id', function(req, res) {
       return product.save(function(err) {
         if (err) return console.error(err);
         return res.send({
-          product: product
+          product: deleteVersion(product)
         });
       });
     }

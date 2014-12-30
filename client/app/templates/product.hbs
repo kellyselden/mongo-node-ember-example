@@ -1,18 +1,18 @@
 <h2>{{t "product.edit"}}</h2>
 
 <table class="edit-table">
-    <tr>
-      <td><label>{{t "product.name"}}</label></td>
-      <td>{{input value=model.name}}</td>
-    </tr>
-    <tr>
-      <td><label>{{t "product.type"}}</label></td>
-      <td>{{view "select" content=types selection=model.type}}</td>
-    </tr>
-    <tr>
-      <td><label>{{t "product.public"}}</label></td>
-      <td>{{input type="checkbox" checked=model.isPublic}}</td>
-    </tr>
+  <tr>
+    <td><label>{{t "product.name"}}</label></td>
+    <td>{{input value=model.name}}</td>
+  </tr>
+  <tr>
+    <td><label>{{t "product.type"}}</label></td>
+    <td>{{view "select" content=types selection=model.type}}</td>
+  </tr>
+  <tr>
+    <td><label>{{t "product.public"}}</label></td>
+    <td>{{input type="checkbox" checked=model.isPublic}}</td>
+  </tr>
 </table>
 
 {{edit-buttons model=model}}

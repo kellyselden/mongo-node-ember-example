@@ -1,8 +1,8 @@
 <h2>{{t "product.products"}}</h2>
 
 <div class="list-group">
-  {{#each model}}
-    {{link-to name "product" this class="list-group-item"}}
+  {{#each product in model}}
+    {{link-to product.name "product" product class="list-group-item"}}
   {{/each}}
 </div>
 
