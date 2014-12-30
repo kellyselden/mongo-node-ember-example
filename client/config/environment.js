@@ -37,7 +37,7 @@ module.exports = function(environment) {
       // when it is created
       host: host || 'http://localhost:3000',
       api: 'api/v1',
-      defaultLocale: 'en'
+      defaultLocale: 'en-us'
     }
   };
 
