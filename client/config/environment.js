@@ -36,7 +36,8 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       host: host || 'http://localhost:3000',
-      api: 'api/v1'
+      api: 'api/v1',
+      defaultLocale: 'en'
     }
   };
 
