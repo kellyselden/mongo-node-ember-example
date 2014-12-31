@@ -22,6 +22,12 @@ module.exports = function(environment) {
     'style-src': "'self'",
     'media-src': "'self'"
   };
+  contentSecurityPolicy['script-src'] += " https://maxcdn.bootstrapcdn.com https://cdn.socket.io";
+  contentSecurityPolicy['style-src'] += " https://maxcdn.bootstrapcdn.com";
+  contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
+  contentSecurityPolicy['connect-src'] +=
+    ' ' + host +
+    ' ' + host.replace('http://', 'ws://');
 
   var ENV = {
     modulePrefix: 'client',
@@ -59,13 +65,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    contentSecurityPolicy['script-src'] += " 'unsafe-eval' https://maxcdn.bootstrapcdn.com https://cdn.socket.io";
-    contentSecurityPolicy['style-src'] += " 'unsafe-inline' https://maxcdn.bootstrapcdn.com";
-    contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
-    contentSecurityPolicy['connect-src'] +=
-      ' ' + host +
-      ' ' + host.replace('http://', 'ws://');
   }
 
   if (environment === 'test') {
