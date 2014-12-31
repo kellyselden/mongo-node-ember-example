@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   actions: {
     localeChanged: function(locale) {
       var currentRouteName = this.controllerFor('application').get('currentRouteName');
-      this.transitionToDynamic(currentRouteName, { locale: locale });
+      this.transitionToDynamic(currentRouteName, { home: { locale: locale } });
     }
   }
 });
