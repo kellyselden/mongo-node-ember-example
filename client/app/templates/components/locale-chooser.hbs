@@ -1,6 +1,13 @@
-{{view "select"
-  content=locales
-  optionValuePath="content.value"
-  optionLabelPath="content.label"
-  selection=selectedLocale
-}}
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  {{t "menu.language"}}
+  <span class="caret"></span>
+</a>
+<ul class="dropdown-menu" role="menu">
+  {{#each locale in locales}}
+    <li>
+      <a href="#" {{action "localeChanged" locale.value}}>
+        {{t locale.key}}
+      </a>
+    </li>
+  {{/each}}
+</ul>

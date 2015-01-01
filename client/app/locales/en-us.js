@@ -6,7 +6,8 @@ export default {
   menu: {
     toggle: 'Toggle navigation',
     title: 'Mongo Node Ember Example',
-    home: 'Home'
+    home: 'Home',
+    language: 'Language'
   },
   home: 'This is the starting page.',
   product: {

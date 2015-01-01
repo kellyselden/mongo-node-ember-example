@@ -12,5 +12,11 @@ export default Ember.Component.extend({
         this.set('productsClass', 'active');
         break;
     }
-  }.observes('menuRoute').on('init')
+  }.observes('menuRoute').on('init'),
+
+  actions: {
+    localeChanged: function(locale) {
+      this.sendAction('action', locale);
+    }
+  }
 });
