@@ -8,10 +8,10 @@
   <tr>
     <td><label>{{t "product.type"}}</label></td>
     <td>
-      {{view "select"
+      {{view "select-localized"
         content=types
         optionValuePath="content.value"
-        optionLabelPath="content.label"
+        optionLabelKeyPrefix="product.types"
         value=model.type
       }}
     </td>
