@@ -14,6 +14,10 @@ export default {
     edit: 'Editar Producto',
     name: 'Nombre',
     type: 'Tipo',
+    types: {
+      first: 'Primero',
+      second: 'Segundo'
+    },
     public: 'Público'
   },
   buttons: {

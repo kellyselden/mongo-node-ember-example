@@ -7,7 +7,14 @@
   </tr>
   <tr>
     <td><label>{{t "product.type"}}</label></td>
-    <td>{{view "select" content=types selection=model.type}}</td>
+    <td>
+      {{view "select"
+        content=types
+        optionValuePath="content.value"
+        optionLabelPath="content.label"
+        value=model.type
+      }}
+    </td>
   </tr>
   <tr>
     <td><label>{{t "product.public"}}</label></td>
