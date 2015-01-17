@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   }.observes('menuRoute').on('init'),
 
   actions: {
-    localeChanged: function(locale) {
+    changeLocale: function(locale) {
       this.sendAction('action', locale);
     }
   }

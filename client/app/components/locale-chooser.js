@@ -11,7 +11,7 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    localeChanged: function(locale) {
+    changeLocale: function(locale) {
       this.sendAction('action', locale);
     }
   }

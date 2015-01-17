@@ -1,16 +1,10 @@
 import Ember from 'ember';
+import LocaleRouteMixin from 'ember-cli-i18n-route/mixins/locale-route';
 
-export default Ember.Route.extend({
-  model: function(params) {
-    this.container.lookup('application:main').set('locale', params.locale);
-  },
+export default Ember.Route.extend(LocaleRouteMixin, {
   actions: {
     changeMenu: function(routeName) {
       this.controller.set('menuRoute', routeName);
-    },
-    localeChanged: function(locale) {
-      var currentRouteName = this.controllerFor('application').get('currentRouteName');
-      this.transitionToDynamic(currentRouteName, { home: { locale: locale } });
     }
   }
 });
