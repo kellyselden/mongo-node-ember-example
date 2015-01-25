@@ -11,10 +11,10 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li {{bind-attr class=homeClass}}>
+        <li {{bind-attr class=homeClass}} data-toggle="collapse" data-target="#navbar">
           {{#link-to "home"}}{{t "menu.home"}}{{/link-to}}
         </li>
-        <li {{bind-attr class=productsClass}}>
+        <li {{bind-attr class=productsClass}} data-toggle="collapse" data-target="#navbar">
           {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
         </li>
         {{locale-chooser action="changeLocale"}}
