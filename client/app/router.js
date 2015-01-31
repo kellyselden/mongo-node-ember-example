@@ -9,7 +9,7 @@ Router.map(function() {
   this.resource('home', { path: ':locale' }, function() {
     this.resource('products', function() {
       this.route('create');
-      this.resource('product', { path: ':product_id' });
+      this.resource('products.product', { path: ':product_id' });
     });
   });
 });
