@@ -1,11 +1,9 @@
 import CreateRoute from 'client/routes/create';
 
-var type = 'product';
-
 export default CreateRoute.extend({
   model: function() {
-    return this._super(type);
+    return this._super('product');
   },
-  controllerName: type,
-  templateName: type
+  controllerName: 'products/product',
+  templateName: 'products/product'
 });
