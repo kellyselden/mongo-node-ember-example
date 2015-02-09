@@ -26,5 +26,9 @@ export default {
     cancel: 'Cancelar',
     save: 'Guardar',
     remove: 'Quitar'
+  },
+  footer: {
+    branch: 'Rama',
+    version: 'Versión'
   }
 };

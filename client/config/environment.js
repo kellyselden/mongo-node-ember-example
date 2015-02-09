@@ -9,6 +9,8 @@ if (!host) {
   host = 'http://localhost:3000';
 }
 
+var version = fs.readFileSync('./version', 'utf8').split('\n');
+
 module.exports = function(environment) {
   //the environment hack in Brocfile.js isn't persisted throughout the entire app lifecycle
   environment = process.env.EMBER_ENV;
@@ -46,11 +48,14 @@ module.exports = function(environment) {
       // when it is created
       host: host,
       api: 'api/v1',
-      defaultLocale: 'en-us'
+      defaultLocale: 'en-us',
+      branch: version[0],
+      version: version[1],
+      timestamp: version[2]
     }
   };
 
-  switch(process.env.CLIENT_ENV) {
+  switch (process.env.CLIENT_ENV) {
     case 'development':
       break;
     case 'heroku':

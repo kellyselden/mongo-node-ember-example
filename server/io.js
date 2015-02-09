@@ -1,4 +1,7 @@
 var socket = require('socket.io');
+var fs = require('fs');
+
+var version = fs.readFileSync('./version', 'utf8').split('\n');
 
 module.exports = function(http) {
   var io = socket(http);
@@ -11,4 +14,8 @@ module.exports = function(http) {
       socket.broadcast.emit('remove', msg);
     });
   });
+
+  setInterval(function() {
+    io.sockets.emit('version', version[1]);
+  }, 10000);
 };

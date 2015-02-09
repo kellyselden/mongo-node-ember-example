@@ -1,33 +1,31 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">{{t "menu.toggle"}}</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      {{#link-to "home" class="navbar-brand"}}{{t "menu.title"}}{{/link-to}}
-    </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav hidden-xs">
-        <li {{bind-attr class=homeClass}}>
-          {{#link-to "home"}}{{t "menu.home"}}{{/link-to}}
-        </li>
-        <li {{bind-attr class=productsClass}}>
-          {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
-        </li>
-        {{locale-chooser action="changeLocale"}}
-      </ul>
-      <ul class="nav navbar-nav visible-xs">
-        <li {{bind-attr class=homeClass}} data-toggle="collapse" data-target="#navbar">
-          {{#link-to "home"}}{{t "menu.home"}}{{/link-to}}
-        </li>
-        <li {{bind-attr class=productsClass}} data-toggle="collapse" data-target="#navbar">
-          {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
-        </li>
-        {{locale-chooser action="changeLocale"}}
-      </ul>
-    </div>
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">{{t "menu.toggle"}}</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    {{#link-to "home" class="navbar-brand"}}{{t "menu.title"}}{{/link-to}}
   </div>
-</nav>
+  <div id="navbar" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav hidden-xs">
+      <li {{bind-attr class=homeClass}}>
+        {{#link-to "home"}}{{t "menu.home"}}{{/link-to}}
+      </li>
+      <li {{bind-attr class=productsClass}}>
+        {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
+      </li>
+      {{locale-chooser action="changeLocale"}}
+    </ul>
+    <ul class="nav navbar-nav visible-xs">
+      <li {{bind-attr class=homeClass}} data-toggle="collapse" data-target="#navbar">
+        {{#link-to "home"}}{{t "menu.home"}}{{/link-to}}
+      </li>
+      <li {{bind-attr class=productsClass}} data-toggle="collapse" data-target="#navbar">
+        {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
+      </li>
+      {{locale-chooser action="changeLocale"}}
+    </ul>
+  </div>
+</div>
