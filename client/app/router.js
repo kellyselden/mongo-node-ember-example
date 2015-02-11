@@ -12,7 +12,9 @@ Router.map(function() {
       this.resource('products.product', { path: ':product_id' });
     });
     this.resource('error-handling');
-    this.resource('error-2');
+    this.resource('model-error');
+
+    this.resource('error');
   });
 });
 

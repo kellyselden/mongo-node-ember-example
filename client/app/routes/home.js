@@ -14,8 +14,8 @@ export default Ember.Route.extend(LocaleRouteMixin, {
       }.bind(this));
     },
 
-    error: function() {
-      this.transitionTo('error-2');
+    error: function(error) {
+      Ember.onerror(error);
     }
   }
 });
