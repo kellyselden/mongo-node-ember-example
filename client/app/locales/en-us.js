@@ -21,6 +21,9 @@ export default {
     },
     public: 'Public'
   },
+  errorHandling: {
+    
+  },
   buttons: {
     create: 'Create',
     cancel: 'Cancel',

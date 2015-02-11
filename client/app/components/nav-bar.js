@@ -17,12 +17,16 @@ export default Ember.Component.extend({
     }
     this.set('homeClass', '');
     this.set('productsClass', '');
-    switch(menuRoute) {
+    this.set('errorHandlingClass', '');
+    switch (menuRoute) {
       case 'home':
         this.set('homeClass', 'active');
         break;
       case 'products':
         this.set('productsClass', 'active');
+        break;
+      case 'error-handling':
+        this.set('errorHandlingClass', 'active');
         break;
     }
   }.observes('menuRoute').on('init'),

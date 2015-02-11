@@ -12,6 +12,10 @@ export default Ember.Route.extend(LocaleRouteMixin, {
       Ember.run.scheduleOnce('afterRender', function() {
         this.send('changeMenu', this.controllerFor("application").get("currentRouteName"));
       }.bind(this));
+    },
+
+    error: function() {
+      this.transitionTo('error-2');
     }
   }
 });

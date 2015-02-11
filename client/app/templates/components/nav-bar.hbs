@@ -16,6 +16,9 @@
       <li {{bind-attr class=productsClass}}>
         {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
       </li>
+      <li {{bind-attr class=errorHandlingClass}}>
+        {{#link-to "error-handling"}}Error Handling{{/link-to}}
+      </li>
       {{locale-chooser action="changeLocale"}}
     </ul>
     <ul class="nav navbar-nav visible-xs">
@@ -24,6 +27,9 @@
       </li>
       <li {{bind-attr class=productsClass}} data-toggle="collapse" data-target="#navbar">
         {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
+      </li>
+      <li {{bind-attr class=errorHandlingClass}} data-toggle="collapse" data-target="#navbar">
+        {{#link-to "error-handling"}}Error Handling{{/link-to}}
       </li>
       {{locale-chooser action="changeLocale"}}
     </ul>
