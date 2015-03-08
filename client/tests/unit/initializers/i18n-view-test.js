@@ -1,10 +1,11 @@
 import Ember from 'ember';
-import { initialize } from 'client/initializers/i18n-view';
+import { initialize } from '../../../initializers/i18n-view';
+import { module, test } from 'qunit';
 
 var container, application;
 
 module('I18nViewInitializer', {
-  setup: function() {
+  beforeEach: function() {
     Ember.run(function() {
       application = Ember.Application.create();
       container = application.__container__;
@@ -14,10 +15,9 @@ module('I18nViewInitializer', {
 });
 
 // Replace this with your real tests.
-test('it works', function() {
+test('it works', function(assert) {
   initialize(container, application);
 
   // you would normally confirm the results of the initializer here
-  ok(true);
+  assert.ok(true);
 });
-
