@@ -21,6 +21,12 @@ export default {
     },
     public: 'Público'
   },
+  errorHandling: {
+    title: 'Control de Errores',
+    throw: 'Error Throw',
+    route: 'Ruta con el error del modelo',
+    error: 'Error'
+  },
   buttons: {
     create: 'Crear',
     cancel: 'Cancelar',

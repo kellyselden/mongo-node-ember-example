@@ -22,7 +22,10 @@ export default {
     public: 'Public'
   },
   errorHandling: {
-    
+    title: 'Error Handling',
+    throw: 'Throw Error',
+    route: 'Route with model error',
+    error: 'Error'
   },
   buttons: {
     create: 'Create',
