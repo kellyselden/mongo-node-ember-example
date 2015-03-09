@@ -17,7 +17,7 @@ export default Ember.Component.extend({
     }
     this.set('homeClass', '');
     this.set('productsClass', '');
-    switch(menuRoute) {
+    switch (menuRoute) {
       case 'home':
         this.set('homeClass', 'active');
         break;
