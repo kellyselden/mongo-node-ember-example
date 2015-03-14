@@ -6,8 +6,11 @@ html {
   min-height: 100%;
 }
 body {
-  padding-top: 50px;
   margin-bottom: $footerHeight + $defaultMargin;
+}
+
+main {
+  margin-top: 50px;
 }
 
 .edit-table {
