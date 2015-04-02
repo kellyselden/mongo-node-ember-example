@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function() {
+export default Router.map(function() {
   adminRouter(this);
   this.resource('home', { path: ':locale' }, function() {
     this.resource('products', function() {
@@ -15,5 +15,3 @@ Router.map(function() {
     });
   });
 });
-
-export default Router;

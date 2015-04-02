@@ -19,13 +19,13 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "broccoli-asset-rev": "^2.0.0",
+    "broccoli-asset-rev": "^2.0.2",
     "broccoli-jscs": "0.0.19",
     "ember-admin": "git://github.com/dockyard/ember-admin.git#master",
-    "ember-cli": "0.2.0",
-    "ember-cli-app-version": "0.3.2",
+    "ember-cli": "0.2.2",
+    "ember-cli-app-version": "0.3.3",
     "ember-cli-babel": "^4.0.0",
-    "ember-cli-content-security-policy": "0.3.0",
+    "ember-cli-content-security-policy": "0.4.0",
     "ember-cli-dependency-checker": "0.0.8",
     "ember-cli-dirty-confirm": "0.0.1",
     "ember-cli-find-cached": "0.0.1",
@@ -39,8 +39,8 @@
     "ember-cli-sass": "^3.1.0-beta",
     "ember-cli-transition-to-dynamic": "0.0.2",
     "ember-cli-uglify": "1.0.1",
-    "ember-data": "1.0.0-beta.15",
+    "ember-data": "1.0.0-beta.16.1",
     "ember-export-application-global": "^1.0.2",
-    "liquid-fire": "^0.17.0"
+    "liquid-fire": "git://github.com/ef4/liquid-fire.git"
   }
 }
