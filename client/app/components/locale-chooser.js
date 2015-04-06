@@ -1,12 +1,11 @@
 import Ember from 'ember';
-
-var locales = ['en-us', 'es-es'];
+import getLocales from 'ember-cli-i18n-locales/utils/get-locales';
 
 export default Ember.Component.extend({
   tagName: 'li',
   classNames: ['dropdown'],
 
-  locales: locales.map(function(locale) {
+  locales: getLocales().map(function(locale) {
     return { value: locale, key: 'locales.' + locale };
   }),
 
