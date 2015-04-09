@@ -57,7 +57,7 @@ module.exports = function(environment) {
       sessionServiceName: 'session',
       providers: {
         'github-oauth2': {
-          redirectUri: '/my-custom-landing-uri' // default is the current URL
+          redirectUri: 'http://localhost:4200' // default is the current URL
         }
       }
     }
