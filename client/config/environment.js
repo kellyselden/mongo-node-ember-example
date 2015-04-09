@@ -52,13 +52,23 @@ module.exports = function(environment) {
       branch: version[0],
       version: version[1],
       timestamp: version[2]
+    },
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'github-oauth2': {
+          redirectUri: '/my-custom-landing-uri' // default is the current URL
+        }
+      }
     }
   };
 
   switch (process.env.CLIENT_ENV) {
     case 'development':
+      ENV.torii.providers['github-oauth2'].apiKey = 'cf9d5783f46b1898df9d';
       break;
     case 'heroku':
+      ENV.torii.providers['github-oauth2'].apiKey = '3d259b03470790e2f0fc';
       break;
     case 'production':
       break;
