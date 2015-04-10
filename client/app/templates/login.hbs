@@ -1,1 +1,8 @@
-<button {{action 'github'}}>github</button>
+{{#if session.isWorking}}
+  One sec while we get you signed in...
+{{else}}
+{{error}}
+  <button {{action 'github'}}>github</button>
+{{/if}}
+{{log session}}
+{{log torii}}
