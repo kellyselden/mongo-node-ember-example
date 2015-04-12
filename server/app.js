@@ -20,6 +20,8 @@ app.use(function(req, res, next) {
 
 app.use('/api/v1', router);
 
+//console.log(router.stack);
+
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
