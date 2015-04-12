@@ -1,5 +1,5 @@
 var passport = require('passport');
-var expressSession = require('express-session');
+var session = require('express-session');
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -17,7 +17,11 @@ passport.deserializeUser(function(obj, done) {
 });
 
 module.exports = function(app) {
-  app.use(expressSession({ secret: 'mySecretKey' }));
+  app.use(session({
+    secret: 'mySecretKey',
+    resave: true,
+    saveUninitialized: true
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
 }
