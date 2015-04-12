@@ -10,14 +10,14 @@
   "author": "Kelly Selden <kellyselden@gmail.com> (https://github.com/kellyselden)",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.10.0",
-    "express": "^4.10.6",
+    "body-parser": "^1.0.0",
+    "express": "^4.0.0",
     "express-session": "^1.11.1",
-    "mongoose": "^3.8.20",
+    "mongoose": "~3.8.0",
     "passport": "^0.2.1",
     "passport-github": "^0.1.5",
     "passport-local": "^1.0.0",
-    "path": "^0.4.9",
-    "socket.io": "^1.2.1"
+    "path": "^0.11.0",
+    "socket.io": "^1.0.0"
   }
 }
