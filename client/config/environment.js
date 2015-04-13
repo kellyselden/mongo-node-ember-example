@@ -29,7 +29,8 @@ module.exports = function(environment) {
   contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
   contentSecurityPolicy['connect-src'] +=
     ' ' + host +
-    ' ' + host.replace('http://', 'ws://');
+    ' ' + host.replace('http://', 'ws://') +
+    ' https://github.com';
 
   var ENV = {
     modulePrefix: 'client',
