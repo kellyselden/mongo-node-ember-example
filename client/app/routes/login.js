@@ -8,6 +8,13 @@ export default Ember.Route.extend({
       }, function() {
         console.log(arguments);
       });
+    },
+    facebook: function() {
+      this.get('session').open('facebook-oauth2').then(function() {
+        console.log(arguments);
+      }, function() {
+        console.log(arguments);
+      });
     }
   }
 });

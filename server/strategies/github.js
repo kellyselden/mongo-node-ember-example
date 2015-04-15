@@ -8,10 +8,10 @@ module.exports = function(passport) {
   passport.use(new GitHubStrategy({
       clientID: GITHUB_CLIENT_ID,
       clientSecret: GITHUB_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/api/v1/auth/github/callback"
+      callbackURL: 'http://localhost:4200/auth/github/callback'
     },
     function(accessToken, refreshToken, profile, done) {
-      User.findOrCreate({ githubId: profile.id }, function (err, user) {
+      User.findOrCreate({ githubId: profile.id }, function(err, user) {
         return done(err, user);
       });
     }

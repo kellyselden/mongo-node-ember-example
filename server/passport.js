@@ -1,5 +1,6 @@
 var session = require('express-session');
 var github = require('./strategies/github');
+var facebook = require('./strategies/facebook');
 
 module.exports = function(app, passport) {
   // Passport session setup.
@@ -18,6 +19,24 @@ module.exports = function(app, passport) {
   });
 
   github(passport);
+  facebook(passport);
+
+  app.get('/auth/github',
+    passport.authenticate('github'));
+
+  app.get('/auth/github/callback', 
+    passport.authenticate('github', { failureRedirect: '/login' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    });
+
+  app.get('/auth/facebook',
+    passport.authenticate('facebook'));
+
+  app.get('/auth/facebook/callback', 
+    passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/login' }));
 
   app.use(session({
     secret: 'mySecretKey',
