@@ -63,7 +63,7 @@ module.exports = function(environment) {
         },
         'facebook-oauth2': {
           apiKey: '1628487270696090',
-          redirectUri: 'http://localhost:4200' // default is the current URL
+          redirectUri: 'http://localhost:3000/auth/facebook/callback' // default is the current URL
         }
       }
     }

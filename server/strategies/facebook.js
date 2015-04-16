@@ -1,7 +1,7 @@
 var FacebookStrategy = require('passport-facebook').Strategy;
 var User = require('../models/user');
 
-var FACEBOOK_APP_ID = 'cf9d5783f46b1898df9d';
+var FACEBOOK_APP_ID = '1628487270696090';
 var FACEBOOK_APP_SECRET = '732ac54af18540e19d5fba789e3ed007';
 
 module.exports = function(passport) {
@@ -11,8 +11,9 @@ module.exports = function(passport) {
       callbackURL: 'http://localhost:3000/auth/facebook/callback'
     },
     function(accessToken, refreshToken, profile, done) {
-      User.findOrCreate({ facebookId: profile.id }, function(err, user) {
-        return done(err, user);
+      process.nextTick(function() {
+        //Assuming user exists
+        done(null, profile);
       });
     }
   ));

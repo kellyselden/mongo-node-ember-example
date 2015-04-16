@@ -19,10 +19,11 @@ app.use(function(req, res, next) {
 });
 
 var ppp = require('passport');
-app.use('/api/v1', router(ppp));
 
 var passport = require('./passport');
 passport(app, ppp);
+
+app.use('/api/v1', router(ppp));
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));

@@ -3,6 +3,15 @@ var github = require('./strategies/github');
 var facebook = require('./strategies/facebook');
 
 module.exports = function(app, passport) {
+
+  app.use(session({
+    secret: 'mySecretKey',
+    resave: true,
+    saveUninitialized: true
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  
   // Passport session setup.
   //   To support persistent login sessions, Passport needs to be able to
   //   serialize users into and deserialize users out of the session.  Typically,
@@ -21,10 +30,10 @@ module.exports = function(app, passport) {
   github(passport);
   facebook(passport);
 
-  app.get('/auth/github',
+  app.post('/auth/github',
     passport.authenticate('github'));
 
-  app.get('/auth/github/callback', 
+  app.post('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
       // Successful authentication, redirect home.
@@ -34,15 +43,17 @@ module.exports = function(app, passport) {
   app.get('/auth/facebook',
     passport.authenticate('facebook'));
 
-  app.get('/auth/facebook/callback', 
-    passport.authenticate('facebook', { successRedirect: '/',
-                                      failureRedirect: '/login' }));
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+      successRedirect: '/success',
+      failureRedirect: '/error'
+    }));
 
-  app.use(session({
-    secret: 'mySecretKey',
-    resave: true,
-    saveUninitialized: true
-  }));
-  app.use(passport.initialize());
-  app.use(passport.session());
+app.get('/success', function(req, res, next) {
+  res.send('Successfully logged in.');
+});
+ 
+app.get('/error', function(req, res, next) {
+  res.send("Error logging in.");
+});
 }
