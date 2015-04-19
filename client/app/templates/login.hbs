@@ -4,3 +4,6 @@
   <button {{action 'github'}}>github</button>
   <button {{action 'facebook'}}>facebook</button>
 {{/if}}
+{{#if session.isAuthenticated}}
+  logged in
+{{/if}}

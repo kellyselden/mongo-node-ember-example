@@ -12,5 +12,13 @@ export default Ember.Object.extend({
         error: Ember.run.bind(null, reject)
       });
     });
+  },
+  fetch: function() {
+    console.log('fetch');
+    this._super.apply(this, arguments);
+  },
+  close: function() {
+    console.log('close');
+    this._super.apply(this, arguments);
   }
 });
