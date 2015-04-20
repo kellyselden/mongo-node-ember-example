@@ -6,6 +6,7 @@ export default Ember.Object.extend({
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax({
         url: ENV.APP.host + '/auth/facebook',
+        type: 'POST',
         data: { 'facebook-auth-code': authentication.authorizationCode },
         dataType: 'json',
         success: Ember.run.bind(null, resolve),

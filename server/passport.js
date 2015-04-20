@@ -40,14 +40,14 @@ module.exports = function(app, passport) {
       res.redirect('/');
     });
 
-  app.get('/auth/facebook',
-    passport.authenticate('facebook'));
+  app.post('/auth/facebook', function(req, res) {
+    return res.send({
+      user: {}
+    });
+  });
 
   app.get('/auth/facebook/callback',
-    passport.authenticate('facebook', {
-      successRedirect: '/success',
-      failureRedirect: '/error'
-    }));
+    passport.authenticate('facebook'));
 
 app.get('/success', function(req, res, next) {
   res.send('Successfully logged in.');
