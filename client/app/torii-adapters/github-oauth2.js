@@ -6,6 +6,7 @@ export default Ember.Object.extend({
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax({
         url: ENV.APP.host + '/auth/github',
+        type: 'POST',
         data: { 'github-auth-code': authorization.authorizationCode },
         dataType: 'json',
         success: Ember.run.bind(null, resolve),

@@ -59,7 +59,7 @@ module.exports = function(environment) {
       sessionServiceName: 'session',
       providers: {
         'github-oauth2': {
-          redirectUri: 'http://localhost:4200' // default is the current URL
+          redirectUri: 'http://localhost:3000' // default is the current URL
         },
         'facebook-oauth2': {
           apiKey: '1628487270696090',
