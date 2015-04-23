@@ -14,5 +14,6 @@ export default Router.map(function() {
       this.route('create');
       this.resource('products.product', { path: ':product_id' });
     });
+    this.resource('catchall', { path: '/*wildcard' });
   });
 });
