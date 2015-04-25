@@ -60,25 +60,37 @@ module.exports = function(environment) {
       providers: {
         'github-oauth2': {
           redirectUri: 'http://localhost:3000' // default is the current URL
-        },
-        'facebook-oauth2': {
-          apiKey: '1628487270696090',
-          redirectUri: 'http://localhost:3000/auth/facebook/callback' // default is the current URL
         }
       }
     }
   };
 
+  var facebook = { };
+
   switch (process.env.CLIENT_ENV) {
     case 'development':
       ENV.torii.providers['github-oauth2'].apiKey = 'cf9d5783f46b1898df9d';
+
+      facebook.apiKey = '1632188546992629';
+      facebook.redirectUri = 'http://localhost:4200/auth/facebook/callback';
+      break;
+    case 'express':
+      ENV.torii.providers['github-oauth2'].apiKey = 'cf9d5783f46b1898df9d';
+
+      facebook.apiKey = '1632193480325469';
+      facebook.redirectUri = 'http://localhost:3000/auth/facebook/callback';
       break;
     case 'heroku':
       ENV.torii.providers['github-oauth2'].apiKey = '3d259b03470790e2f0fc';
+
+      facebook.apiKey = '1628487270696090';
+      facebook.redirectUri = 'http://mongo-node-ember-example.herokuapp.com/auth/facebook/callback';
       break;
     case 'production':
       break;
   }
+
+  ENV.torii.providers['facebook-oauth2'] = facebook;
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

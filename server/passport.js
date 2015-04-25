@@ -47,7 +47,9 @@ module.exports = function(app, passport) {
   });
 
   app.get('/auth/facebook/callback',
-    passport.authenticate('facebook'));
+    passport.authenticate('facebook'), function(req, res) {
+    return res.redirect('/login?code=' + req.query.code);
+  });
 
 app.get('/success', function(req, res, next) {
   res.send('Successfully logged in.');
