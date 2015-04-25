@@ -1,14 +1,6 @@
 /* jshint node: true */
 var fs = require('fs');
 
-var host, hostPath = './host';
-if (fs.existsSync(hostPath)) {
-  host = fs.readFileSync(hostPath, 'utf8');
-}
-if (!host) {
-  host = 'http://localhost:3000';
-}
-
 var version = fs.readFileSync('./version', 'utf8').split('\n');
 
 module.exports = function(environment) {
@@ -28,8 +20,6 @@ module.exports = function(environment) {
   contentSecurityPolicy['style-src'] += ' https://maxcdn.bootstrapcdn.com';
   contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
   contentSecurityPolicy['connect-src'] +=
-    ' ' + host +
-    ' ' + host.replace('http://', 'ws://') +
     ' https://github.com' +
     ' https://www.facebook.com';
 
@@ -48,7 +38,6 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      host: host,
       api: 'api/v1',
       defaultLocale: 'en-us',
       branch: version[0],
