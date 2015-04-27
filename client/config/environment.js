@@ -1,11 +1,16 @@
 /* jshint node: true */
 var fs = require('fs');
 
+var host = fs.readFileSync('./host', 'utf8');
+var github = fs.readFileSync('./github', 'utf8').split('\n')[0];
+var facebook = fs.readFileSync('./facebook', 'utf8').split('\n')[0];
 var version = fs.readFileSync('./version', 'utf8').split('\n');
 
 module.exports = function(environment) {
   //the environment hack in Brocfile.js isn't persisted throughout the entire app lifecycle
   environment = process.env.EMBER_ENV;
+
+  var api = 'api/v1';
 
   var contentSecurityPolicy = {
     'default-src': "'none'",
@@ -38,7 +43,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      api: 'api/v1',
+      api: api,
       defaultLocale: 'en-us',
       branch: version[0],
       version: version[1],
@@ -48,38 +53,25 @@ module.exports = function(environment) {
       sessionServiceName: 'session',
       providers: {
         'github-oauth2': {
-          redirectUri: 'http://localhost:3000' // default is the current URL
+          apiKey: github,
+          redirectUri: host + '/' + api + '/auth/github/callback'
+        },
+        'facebook-oauth2': {
+          apiKey: facebook,
+          redirectUri: host + '/' + api + '/auth/facebook/callback'
         }
       }
     }
   };
 
-  var facebook = { };
-
   switch (process.env.CLIENT_ENV) {
-    case 'development':
-      ENV.torii.providers['github-oauth2'].apiKey = 'cf9d5783f46b1898df9d';
-
-      facebook.apiKey = '1632188546992629';
-      facebook.redirectUri = 'http://localhost:4200/auth/facebook/callback';
+    case 'ember':
       break;
     case 'express':
-      ENV.torii.providers['github-oauth2'].apiKey = 'cf9d5783f46b1898df9d';
-
-      facebook.apiKey = '1632193480325469';
-      facebook.redirectUri = 'http://localhost:3000/auth/facebook/callback';
       break;
     case 'heroku':
-      ENV.torii.providers['github-oauth2'].apiKey = '3d259b03470790e2f0fc';
-
-      facebook.apiKey = '1628487270696090';
-      facebook.redirectUri = 'http://mongo-node-ember-example.herokuapp.com/auth/facebook/callback';
-      break;
-    case 'production':
       break;
   }
-
-  ENV.torii.providers['facebook-oauth2'] = facebook;
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

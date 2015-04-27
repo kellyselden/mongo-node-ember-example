@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 var router = require('./router');
 var mongoose = require('./mongoose');
+var passport = require('./passport');
 
 var app = express();
 
@@ -18,12 +19,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-var ppp = require('passport');
+var passport = require('./passport')(app);
 
-var passport = require('./passport');
-passport(app, ppp);
-
-app.use('/api/v1', router(ppp));
+app.use('/api/v1', router(passport));
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));

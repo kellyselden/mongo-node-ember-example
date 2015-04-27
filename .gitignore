@@ -1,3 +1,9 @@
 client/host
+client/github
+client/facebook
 client/version
+server/host
+server/github
+server/facebook
+server/connectionstring
 server/version

@@ -8,7 +8,6 @@ var Router = Ember.Router.extend({
 
 export default Router.map(function() {
   adminRouter(this);
-  this.route('auth', { path: 'auth/:provider/callback' });
   this.resource('home', { path: ':locale' }, function() {
     this.resource('login');
     this.resource('products', function() {

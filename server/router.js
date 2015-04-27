@@ -7,7 +7,7 @@ var products = require('./routes/products');
 router.use('/products', products);
 
 module.exports = function(passport) {
-  router.use('/', auth(passport));
+  router.use('/auth', auth(passport));
 
   return router;
 };

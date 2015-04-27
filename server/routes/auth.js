@@ -1,32 +1,11 @@
 var express = require('express');
+var auth = require('./oauth2');
 
 var router = express.Router();
 
 module.exports = function(passport) {
-  router.post('/login',
-    passport.authenticate('local'),
-    function(req, res) {
-      // If this function gets called, authentication was successful.
-      // `req.user` contains the authenticated user.
-      res.redirect('/users/' + req.user.username);
-    });
-
-  // router.get('/auth/github',
-  //   passport.authenticate('github'));
-
-  // router.get('/auth/github/callback', 
-  //   passport.authenticate('github', { failureRedirect: '/login' }),
-  //   function(req, res) {
-  //     // Successful authentication, redirect home.
-  //     res.redirect('/');
-  //   });
-
-  // router.get('/auth/facebook',
-  //   passport.authenticate('facebook'));
-
-  // router.get('/auth/facebook/callback', 
-  //   passport.authenticate('facebook', { successRedirect: '/',
-  //                                     failureRedirect: '/login' }));
+  auth(router, passport, 'github');
+  auth(router, passport, 'facebook');
 
   return router;
 };
