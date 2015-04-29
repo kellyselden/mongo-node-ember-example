@@ -10,6 +10,9 @@ export default Router.map(function() {
   adminRouter(this);
   this.resource('home', { path: ':locale' }, function() {
     this.resource('login');
+    this.resource('users', function() {
+      this.resource('users.user', { path: ':user_id' });
+    });
     this.resource('products', function() {
       this.route('create');
       this.resource('products.product', { path: ':product_id' });

@@ -10,19 +10,25 @@
   </div>
   <div id="navbar" class="collapse navbar-collapse">
     <ul class="nav navbar-nav hidden-xs">
-      <li {{bind-attr class=homeClass}}>
+      <li class={{homeClass}}>
         {{#link-to "home"}}{{t "menu.home"}}{{/link-to}}
       </li>
-      <li {{bind-attr class=productsClass}}>
+      <li class={{usersClass}}>
+        {{#link-to "users"}}{{t "user.users"}}{{/link-to}}
+      </li>
+      <li class={{productsClass}}>
         {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
       </li>
       {{locale-chooser action="changeLocale"}}
     </ul>
     <ul class="nav navbar-nav visible-xs">
-      <li {{bind-attr class=homeClass}} data-toggle="collapse" data-target="#navbar">
+      <li class={{homeClass}} data-toggle="collapse" data-target="#navbar">
         {{#link-to "home"}}{{t "menu.home"}}{{/link-to}}
       </li>
-      <li {{bind-attr class=productsClass}} data-toggle="collapse" data-target="#navbar">
+      <li class={{usersClass}} data-toggle="collapse" data-target="#navbar">
+        {{#link-to "users"}}{{t "user.users"}}{{/link-to}}
+      </li>
+      <li class={{productsClass}} data-toggle="collapse" data-target="#navbar">
         {{#link-to "products"}}{{t "product.products"}}{{/link-to}}
       </li>
       {{locale-chooser action="changeLocale"}}

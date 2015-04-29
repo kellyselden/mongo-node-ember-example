@@ -14,9 +14,10 @@ module.exports = function(passport, provider) {
       callbackURL: host + '/api/v1/auth/' + provider + '/callback'
     },
     function(accessToken, refreshToken, profile, done) {
-      process.nextTick(function() {
-        //Assuming user exists
-        done(null, profile);
+      var conditions = { };
+      conditions[provider + 'Id'] = profile.id;
+      User.findOrCreate(conditions, function (err, user) {
+        return done(err, user);
       });
     }
   ));

@@ -10,6 +10,9 @@ export default {
     language: 'Idioma'
   },
   home: 'Esta es la página de inicio.',
+  user: {
+    users: 'Usuarios'
+  },
   product: {
     products: 'Productos',
     edit: 'Editar Producto',
