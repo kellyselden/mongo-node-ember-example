@@ -1,6 +1,7 @@
 /* jshint node: true */
 var fs = require('fs');
 
+var host = fs.readFileSync('./host', 'utf8');
 var version = fs.readFileSync('./version', 'utf8').split('\n');
 
 module.exports = function(environment) {
@@ -19,6 +20,8 @@ module.exports = function(environment) {
   contentSecurityPolicy['script-src'] += ' https://maxcdn.bootstrapcdn.com https://cdn.socket.io';
   contentSecurityPolicy['style-src'] += ' https://maxcdn.bootstrapcdn.com';
   contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
+  contentSecurityPolicy['connect-src'] +=
+    ' ' + host.replace('http://', 'ws://');
 
   var ENV = {
     modulePrefix: 'client',
