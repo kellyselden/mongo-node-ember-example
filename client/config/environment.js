@@ -25,6 +25,7 @@ module.exports = function(environment) {
   contentSecurityPolicy['style-src'] += ' https://maxcdn.bootstrapcdn.com';
   contentSecurityPolicy['font-src'] += ' https://maxcdn.bootstrapcdn.com';
   contentSecurityPolicy['connect-src'] +=
+    ' ' + host.replace('http://', 'ws://')
     ' https://github.com' +
     ' https://www.facebook.com';
 
