@@ -16,8 +16,24 @@ module.exports = function(passport, provider) {
     function(accessToken, refreshToken, profile, done) {
       var conditions = { };
       conditions[provider + 'Id'] = profile.id;
-      User.findOrCreate(conditions, function (err, user) {
-        return done(err, user);
+      User.findOne(conditions, function(err, user) {
+        if (err) {
+          return done(err);
+        }
+        if (user) {
+          return done(err, user);
+        }
+
+        conditions.name = profile.displayName;
+        conditions.email = profile.emails[0].value;
+        conditions.username = profile.username;
+        (user = new User(conditions)).save(function(err) {
+          if (err) {
+            return done(err);
+          }
+
+          return done(err, user);
+        });
       });
     }
   ));

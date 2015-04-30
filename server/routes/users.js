@@ -3,10 +3,10 @@ var User = require('../models/user');
 
 var router = express.Router();
 
-function deleteVersion(product) {
-  product = product.toObject();
-  delete product.__v;
-  return product;
+function deleteVersion(user) {
+  user = user.toObject();
+  delete user.__v;
+  return user;
 }
 
 router.get('/', function(req, res) {
