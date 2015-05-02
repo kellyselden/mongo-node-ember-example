@@ -11,7 +11,10 @@ export default {
   },
   home: 'Esta es la página de inicio.',
   user: {
-    users: 'Usuarios'
+    users: 'Usuarios',
+    edit: 'Editar Usuario',
+    name: 'Nombre',
+    email: 'Correo'
   },
   product: {
     products: 'Productos',
