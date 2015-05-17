@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   classNames: ['dropdown'],
 
   locales: getLocales().map(function(locale) {
-    return { value: locale, key: 'locales.' + locale };
+    return { value: locale, key: 'locales.%@'.fmt(locale) };
   }),
 
   actions: {

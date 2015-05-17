@@ -11,7 +11,7 @@ export default Ember.Select.extend({
     if (!content || !labelKeyPrefix) { return; }
 
     content.forEach(function(option) {
-      Ember.set(option, 'label', this.t(labelKeyPrefix + '.' + option.value));
+      Ember.set(option, 'label', this.t('%@.%@'.fmt(labelKeyPrefix, option.value)));
     }.bind(this));
   }.observes('content', 'optionLabelKeyPrefix', 'i18n.locale').on('init')
 });
