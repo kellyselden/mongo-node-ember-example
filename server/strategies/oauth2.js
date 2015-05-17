@@ -14,6 +14,7 @@ module.exports = function(passport, provider) {
       callbackURL: host + '/api/v1/auth/' + provider + '/callback'
     },
     function(accessToken, refreshToken, profile, done) {
+      console.log('create user');
       var conditions = { };
       conditions[provider + 'Id'] = profile.id;
       User.findOne(conditions, function(err, user) {

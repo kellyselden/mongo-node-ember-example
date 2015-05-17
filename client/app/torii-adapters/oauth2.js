@@ -7,12 +7,20 @@ export default Ember.Object.extend({
     var data = { };
     data[provider + '-auth-code'] = authorization.authorizationCode;
     return new Ember.RSVP.Promise(function(resolve, reject) {
+      console.log('client post /');
       Ember.$.ajax({
         url: ENV.APP.api + '/auth/' + provider,
         type: 'POST',
         data: data,
         success: Ember.run.bind(null, resolve),
         error: Ember.run.bind(null, reject)
+      }).then(function(user) {
+        // The returned object is merged onto the session (basically). Here
+        // you may also want to persist the new session with cookies or via
+        // localStorage.
+        return {
+          currentUser: user
+        };
       });
     });
   },
