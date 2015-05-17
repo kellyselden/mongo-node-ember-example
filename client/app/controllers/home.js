@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import ENV from 'client/config/environment';
 
+var moment = window.moment;
+
 export default Ember.Controller.extend({
   branch: ENV.APP.branch,
   version: ENV.APP.version,

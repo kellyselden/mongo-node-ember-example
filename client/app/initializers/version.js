@@ -1,3 +1,5 @@
+var moment = window.moment;
+
 var secondsBetweenConfirms = 10;
 
 export function initialize(container, application) {
