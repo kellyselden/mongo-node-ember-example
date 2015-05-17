@@ -1,3 +1,5 @@
+var io = window.io;
+
 export function initialize(container, application) {
   var store = container.lookup('store:main');
 

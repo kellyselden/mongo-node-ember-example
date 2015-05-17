@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-export default Router.map(function() {
+Router.map(function() {
   adminRouter(this);
   // this.resource('auth', { path: 'api/v1/auth/:provider/callback' });
   this.resource('home', { path: ':locale' }, function() {
@@ -21,3 +21,5 @@ export default Router.map(function() {
     this.resource('catchall', { path: '/*wildcard' });
   });
 });
+
+export default Router;
