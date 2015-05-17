@@ -1,9 +1,7 @@
-var io = window.io;
-
 export function initialize(container, application) {
   var store = container.lookup('store:main');
 
-  var socket = io();
+  var socket = window.io();
 
   socket.on('save', function(msg) {
     store.fetch(msg.type, msg.id);
