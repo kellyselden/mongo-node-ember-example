@@ -4,3 +4,6 @@
 [submodule "client"]
 	path = client
 	url = https://github.com/kellyselden/ember-example.git
+[submodule "server"]
+	path = server
+	url = https://github.com/kellyselden/express-example.git
