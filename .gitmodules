@@ -1,3 +1,6 @@
 [submodule "scripts"]
 	path = scripts
 	url = git://github.com/kellyselden/express-ember-cli-scripts.git
+[submodule "client"]
+	path = client
+	url = https://github.com/kellyselden/ember-example.git
