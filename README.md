@@ -1,1 +1,0 @@
-# mongo-node-ember-example
