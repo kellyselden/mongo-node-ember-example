@@ -1,15 +1,17 @@
+import ENV from '../config/environment';
+
 var moment = window.moment;
 
 var secondsBetweenConfirms = 10;
 
-export function initialize(container, application) {
-  var socket = container.lookup('io:main');
+export function initialize(instance) {
+  var socket = instance.container.lookup('io:main');
 
   // prevent messages from stacking up
   var lastRunTime = moment();
 
   socket.on('version', function(msg) {
-    var isNewVersion = msg !== application.version;
+    var isNewVersion = msg !== ENV.APP.version;
     if (isNewVersion) {
       var secondsSinceLastRunTime = moment().subtract(lastRunTime).seconds();
       var hasEnoughTimePassed = secondsSinceLastRunTime > secondsBetweenConfirms;

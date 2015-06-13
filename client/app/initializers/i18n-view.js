@@ -1,4 +1,4 @@
-export function initialize(container, application) {
+export function initialize(registry, application) {
   application.inject('view', 'i18n', 'utils:i18n');
 }
 
